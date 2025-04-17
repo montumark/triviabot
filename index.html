@@ -1,0 +1,92 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TriviaBot</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 40px;
+      background: #f9f9f9;
+    }
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+    p.description {
+      font-size: 1.1rem;
+      color: #555;
+    }
+    #trivia-container {
+      margin: 30px auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 12px;
+      background-color: #fff;
+      max-width: 600px;
+      font-size: 1.1rem;
+      min-height: 60px;
+    }
+    button {
+      font-size: 1rem;
+      padding: 10px 20px;
+      border: none;
+      background-color: #007bff;
+      color: #fff;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    .download-link {
+      display: block;
+      margin-top: 40px;
+      font-size: 1rem;
+      color: #007bff;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>TriviaBot</h1>
+  <p class="description">Click below to get a random trivia question and answer!</p>
+  <div id="trivia-container">
+    Your trivia question will appear here.
+  </div>
+  <button id="generate-button">Generate Trivia Question</button>
+  <a class="download-link" href="https://your-download-link.com" target="_blank">
+    Download the Full 500-Question Trivia Pack – Only $7
+  </a>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const triviaData = [
+        { q: "What’s the only mammal capable of true flight?", a: "Bat" },
+        { q: "Which country has the most natural lakes?", a: "Canada" },
+        { q: "What movie features the quote, 'I see dead people'?", a: "The Sixth Sense" },
+        { q: "Who wrote the novel 1984?", a: "George Orwell" },
+        { q: "Which sport uses the term 'love' for zero?", a: "Tennis" },
+        { q: "Which U.S. state has the longest coastline?", a: "Alaska" },
+        { q: "What gas do plants absorb from the atmosphere?", a: "Carbon Dioxide" },
+        { q: "What is the main ingredient in miso soup?", a: "Fermented Soybean Paste" },
+        { q: "What comes once in a minute, twice in a moment, but never in a thousand years?", a: "The letter M" },
+        { q: "What’s the capital of Australia?", a: "Canberra" }
+      ];
+
+      const button = document.getElementById('generate-button');
+      const container = document.getElementById('trivia-container');
+
+      if (button && container) {
+        button.addEventListener('click', function () {
+          const random = triviaData[Math.floor(Math.random() * triviaData.length)];
+          container.innerHTML = `<strong>Q:</strong> ${random.q}<br><strong>A:</strong> ${random.a}`;
+        });
+      }
+    });
+  </script>
+</body>
+</html>
